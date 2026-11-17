@@ -1,0 +1,41 @@
+OrangeFox R12.0 Recovery - POCO X8 Pro / Redmi Turbo 5 (klee)
+Dosya: OrangeFox-R12.0-klee-OS4.0.7-fixed.img (67.108.864 bayt)
+Taban: OS4.0.7.0.XPJEUXM (Android 17 / SDK 37 / Kernel 6.6.118)
+
+Neler Düzeltildi?
+1. /data Şifre Çözme (MITEE KeyMint -33 Fix):
+   - vendor_ramdisk01/prop.default içindeki sürüm ve güvenlik yaması değerleri
+     OS4.0.7.0 ile eşitlendi (ro.build.version.release=17,
+     ro.build.version.security_patch=2026-10-01,
+     ro.vendor.build.security_patch=2026-10-01,
+     ro.vendor.build.version.release=15).
+   - Metadata encryption ve User 0 Weaver FBE otomatik olarak çözülür.
+
+2. /persist Yazılabilirliği ve Ayarların Kaydedilmesi:
+   - twrp.flags ve init.recovery.keymint.rc içindeki ro,noload kilidi kaldırıldı.
+   - Hiçbir wipe/silme bayrağı eklenmediği için cihaz kalibrasyon ve TEE verileri
+     korunur; OrangeFox ayarları (/persist/.foxs) kalıcı kaydedilir.
+
+3. fastbootd ve USB (MTP + ADB) Düzeltmeleri:
+   - init.rc ile init.recovery.usb.rc arasındaki USB ConfigFS çakışması giderildi.
+   - Açılışta MTP + ADB (2717:ff48) otomatik olarak sorunsuz başlar.
+   - fastbootd başlamadan önce prep-fastbootd.sh tüm dinamik super bölümlerini
+     unmount/unmap edip eski dm-* symlinklerini temizler (system_a, system_ext_a,
+     product_a, mi_ext_a, vendor_a, odm_a, *_dlkm_a hepsi sorunsuz açılır).
+
+4. fstab ve Bölüm Desteği:
+   - init.recovery.mt6899.rc içine import /init.recovery.project.rc eklendi.
+   - twrp.flags'a /init_boot, /mi_ext_image, /odm_image eklendi; /usb_otg yolu
+     dahili UFS LUN0 (sda) yerine harici sdd/sde olarak düzeltildi.
+
+-------------------------------------------------------------------------------
+⚠️ ÖNEMLİ UYARI:
+Bu dosya tek başına saf stok `vendor_boot.img` DEĞİLDİR!
+İçerisinde OrangeFox R12.0 Recovery gömülüdür ve `klee` cihazında ayrı bir
+`recovery` bölümü bulunmadığı için `vendor_boot` (`vendor_boot_a` /
+`vendor_boot_b`) bölümüne yazılmak üzere `OS4.0.7.0.XPJEUXM` stok
+`vendor_ramdisk00` + `dtb` tabanı üzerine hazırlanmıştır.
+Farklı bir HyperOS/Android sürümünün `vendor_boot` bölümü yerine doğrudan stok
+`vendor_boot` gibi flaşlanmamalı; yeni sürüme uyarlanırken o sürümün kendi
+`vendor_ramdisk00` ve `dtb` dosyalarıyla yeniden paketlenmelidir.
+-------------------------------------------------------------------------------
