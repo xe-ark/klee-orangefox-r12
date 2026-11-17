@@ -10,6 +10,10 @@ POCO X8 Pro / Redmi Turbo 5 (`klee`, MT6899) için **OrangeFox R12.0 (`5d47f659`
   - `OS4.0.7.0.XPJEUXM` stok `vendor_ramdisk00` + `dtb` ile paketlenmiş, doğrudan `vendor_boot_a`/`vendor_boot_b` üzerine yazılabilir imaj.
 - **`build_fixed_ofox.py`**: `vendor_ramdisk01` yamalarını otomatik uygulayıp `vendor_boot.img` paketleyen Python betiği.
 
+## İndirme Bağlantıları (Google Drive)
+- **`ofox_r12_klee_recovery_ramdisk.lz4`** (`32.556.129` B): https://drive.google.com/file/d/1ht35j7uJd6fcH4CFkghyIy1wE_30X-nA/view?usp=drivesdk
+- **`OrangeFox-R12.0-klee-OS4.0.7-fixed.img`** (`67.108.864` B): https://drive.google.com/file/d/1EljlFDioPf1hHIndN5QNHJvRrfnfQKI8/view?usp=drivesdk
+
 ## Uygulanan Düzeltmeler
 1. **MITEE KeyMint `-33` / `/data` Şifre Çözme Fixi**: `prop.default` değerleri Android 17 / SDK 37 / `2026-10-01` güvenlik yaması (`ro.vendor.build.security_patch=2026-10-01`, `ro.vendor.build.version.release=15`) ile eşitlendi; metadata + User 0 Weaver FBE sorunsuz çözülür.
 2. **`/persist` Yazılabilirliği**: `ro,noload` kaldırıldı (wipe bayrakları eklenmedi); `/persist/.foxs` kalıcı kaydedilir.
