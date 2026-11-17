@@ -27,3 +27,8 @@ POCO X8 Pro / Redmi Turbo 5 (`klee`, MT6899) için **OrangeFox R12.0 (`5d47f659`
 > `ofox_r12_klee_recovery_ramdisk.lz4` dosyası tek başına bir `vendor_boot.img` veya `boot.img` **DEĞİLDİR**; doğrudan `fastboot flash` ile cihaza yazılmaz ve tek başına cihazı açmaz! Yalnızca geliştiricilerin kendi ROM sürümlerine ait `vendor_ramdisk00` ve `dtb` ile `mkbootimg` kullanarak yeni `vendor_boot.img` derlemesi içindir.
 >
 > Doğrudan `vendor_boot` bölümüne yazmak istiyorsanız yalnızca kendi sürümünüzle (`OS4.0.7.0.XPJEUXM`) eşleşen `OrangeFox-R12.0-klee-OS4.0.7-fixed.img` dosyasını kullanın.
+
+---
+
+## Teşekkürler / Credits
+- **Kylixd** — `klee` için OrangeFox R12.0 temel derlemesi için.
