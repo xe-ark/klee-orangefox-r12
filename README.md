@@ -31,4 +31,4 @@ POCO X8 Pro / Redmi Turbo 5 (`klee`, MT6899) için **OrangeFox R12.0 (`5d47f659`
 ---
 
 ## Teşekkürler / Credits
-- **Kylixd** — `klee` için OrangeFox R12.0 temel derlemesi için.
+- **khayloaf** — `klee` için OrangeFox R12.0 temel derlemesi için.
